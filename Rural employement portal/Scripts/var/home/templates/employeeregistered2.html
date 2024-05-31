@@ -1,0 +1,38 @@
+{% extends 'adshometem.html' %}
+            {% block content %}
+            
+                
+            <table class="table table-hover table table-basic">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Pincode</th>
+                    <th>District</th>
+                    <th>Panchayath</th>
+                    <th>Ward</th>
+                    <th>Rationcard_number</th>
+                    <th>Adhar_no</th>
+                    <th>Contact</th>
+                    
+            </tr>
+            {% for r in r %}
+            <tr>
+                <td>{{r.emname}}</td>
+                <td>{{r.emaddress}}</td>
+                <td>{{r.empincode}}</td>
+                <td>{{r.emdistrict}}</td>
+                <td>{{r.empanchayath}}</td>
+                <td>{{r.emward}}</td>
+                <td>{{r.emratiocard}}</td>
+                <td>{{r.emadhar}}</td>
+                <td>{{r.emcontact}}</td>
+              
+        
+                
+            </tr>
+               
+                    {% endfor %}
+
+            </table>  
+            {% endblock content %}
+      

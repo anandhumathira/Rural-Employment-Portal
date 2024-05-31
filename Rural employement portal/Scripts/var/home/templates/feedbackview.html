@@ -1,0 +1,40 @@
+{% extends 'employeetemp.html' %}
+            {% block content %}
+            
+                
+        
+            <table class="table table-hover table table-basic">
+                <tr>
+                    <th>FEEDBACK</th>
+                    <th>CURRENT DATE</th>
+                    <th>EMPLOYEE ID</th>
+                    
+                    
+            </tr>
+            {% for r in r %}
+            <tr>
+                <td>{{r.feedback}}</td>
+                <td>{{r.currentdate}}</td>
+                <td>{{r.employeeid}}</td>
+                <td><a href="fededit/{{r.id}}" class="btn btn-success">EDIT</a></td>
+        <td><a href="feddelete/{{r.id}}" class="btn btn-danger">DELETE</a></td>
+                
+              
+        
+                
+            </tr>
+               
+                    {% endfor %}
+
+            </table>  
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'publichometem.html' %}
+{% block content %}
+<div class="container">
+    <table class="table table-striped" style="width: 50%; margin: 0 auto;">
+        <tr>
+            <th style="text-align: right; width: 40%;">Name:</th>
+            <td>{{ cp.name }}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; width: 40%;">District:</th>
+            <td>{{ cp.district }}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right; width: 40%;">Panchayath:</th>
+            <td>{{ cp.panchayath }}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right;">Contact No:</th> 
+            <td>{{ cp.contact }}</td>
+        </tr>
+        <tr>
+            <th style="text-align: right;">Email ID:</th>
+            <td>{{ cp.emailid }}</td>
+        </tr>
+    </table>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="PUBLICproedit/{{ cp.id }}" class="btn btn-success">Edit</a>
+        <a href="http://127.0.0.1:8000/publichome" class="btn btn-success">Back</a>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'registertemplate.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center bg-danger text-white">
+            <h2>COMPLAINT ENTRY</h2>
+        </div>
+        <div class="card-body" style="padding: 50px;">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ cr.as_p }}
+                
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success btn-block">Register</button>
+                    <a href="http://127.0.0.1:8000/complaintsview2" class="btn btn-success">BACK</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}
+
+        

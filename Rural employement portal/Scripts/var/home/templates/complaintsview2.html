@@ -1,0 +1,28 @@
+{% extends 'publichometem.html' %}
+            {% block content %}
+        
+        
+            <table class="table table-hover table table-basic">
+                <tr>
+                    <th>SUBJECT</th>
+                    <th>COMPLAINT</th>
+                    <th>REGISTRATION DATE</th>
+                    
+                    
+            </tr>
+            {% for cp in cp %}
+            <tr>
+                <td>{{cp.subject}}</td>
+                <td>{{cp.complaint}}</td>
+                <td>{{cp.todate}}</td>
+            
+                <td><a href="complaintsedit/{{cp.id}}" class="btn btn-success">EDIT</a></td>
+                <td><a href="complaintsdelete/{{cp.id}}" class="btn btn-danger">DELETE</a></td>
+                <td><a href="replyshow/{{cp.id}}" class="btn btn-warning">SHOW REPLY</a></td>
+              </tr>
+              {% endfor %} 
+            </table> 
+        
+        </center>
+            {% endblock content %}
+      

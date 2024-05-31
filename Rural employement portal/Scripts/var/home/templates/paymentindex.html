@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+    {% load static %}
+
+<head>
+    <title>Rural Employment Portal</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Payment Tab Widget a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="{% static 'payment/css/style.css'%}" type="text/css" media="all">
+    <!-- easy-responsive-tabs css -->
+    <link rel="stylesheet" href="{% static 'payment/css/easy-responsive-tabs.css'%}" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="title-agile text-center">Payment Tab</h1>
+    <div class="w3ls-main">
+        <!--/tabs-->
+        <div class="responsive_tabs w3ls_tab">
+            <div id="horizontalTab">
+                <ul class="resp-tabs-list">
+                    <li>Credit/Debit</li>
+                   
+                </ul>
+                <div class="resp-tabs-container">
+                    <!--tab_one-->
+                    <div class="tab1">
+                        <div class="agile_pay">
+                            <form action="" method="post"class="creditly-card-form shopf-sear-headinfo_form text-light">
+                                {% csrf_token %}
+                                {{rp.as_p}}
+                               
+                                <center><input type="submit" value="Pay now"></center>
+                            </form>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--//tabs-->
+    </div>
+    <!-- //payment -->
+    <!-- Common js -->
+    <script type="text/javascript" src="{% static 'payment/js/jquery-2.2.3.min.js'%}"></script>
+    <!--// Common js -->
+    <!-- easy-responsive-tabs -->
+    <script src="{% static 'payment/js/easy-responsive-tabs.js'%}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+        });
+    </script>
+    <!-- //easy-responsive-tabs -->
+    <!-- credit-card -->
+    <script src="{% static 'payment/js/creditly.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'payment/css/creditly.css'%}" type="text/css" media="all" />
+    <script>
+        $(function () {
+            var creditly = Creditly.initialize(
+                '.creditly-wrapper .expiration-month-and-year',
+                '.creditly-wrapper .credit-card-number',
+                '.creditly-wrapper .security-code',
+                '.creditly-wrapper .card-type');
+
+            $(".creditly-card-form .submit").click(function (e) {
+                e.preventDefault();
+                var output = creditly.validate();
+                if (output) {
+                    // Your validated credit card output
+                    console.log(output);
+                }
+            });
+        });
+    </script>
+    <!-- //credit-card -->
+    <div class="footer">
+        <div class="copyright">
+           <center> <p>&copy; 2023 Rural Employment Portal</p></center>
+        </div>
+    </div>
+</body>
+<!-- //Body -->
+
+</html>

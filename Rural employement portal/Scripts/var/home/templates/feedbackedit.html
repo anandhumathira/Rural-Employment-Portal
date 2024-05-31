@@ -1,0 +1,13 @@
+{% extends 'registertemplate.html' %}
+{% block content %}
+
+        <center><h4>FEEDBACK EDIT</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{rp.as_p}}
+                <input type="submit" class="btn btn-success" value="SUBMIT">
+            </form></center>
+            
+            {% endblock content %}
+
+    

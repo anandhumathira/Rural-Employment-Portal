@@ -1,0 +1,37 @@
+{% extends 'publichometem.html' %}
+            {% block content %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{q.as_p}}
+<table class="table table-striped table-bordered zero-configuration">
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>District</th>
+        <th>Panchayath</th>
+        <th>Ward No</th>
+        <th>Rationcard_number</th>
+        <th>Tax No</th>
+        <th>Land Tax Receipt</th>
+        <th>Area</th>
+        <th>Action</th>
+
+</tr>
+</thead>
+<tbody>
+    {% for m in m %}
+    <tr>
+        <td>{{m.address}}</td>
+        <td>{{m.district}}</td>
+        <td>{{m.panchayath}}</td>
+        <td>{{m.wardno}}</td>
+        <td>{{m.rationcardno}}</td>
+        <td>{{m.taxno}}</td>
+        <td><a href="uploads/{{m.land_tax_receipt}}" >Click Here</a></td>
+        <td>{{m.area}}</td>
+        <td><a href="workrequestedit/{{m.id}}" class="btn btn-success">EDIT</a>
+        <a href="delete/{{m.id}}" class="btn btn-danger">DELETE</a></td>
+    </tr>
+  {% endfor %}
+      </table>
+      {% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'registertemplate.html' %}
+            {% block content %}
+
+      <br>      
+      <br>      
+
+<table class="table table-striped table-bordered zero-configuration">
+    <thead>
+      <tr>
+       
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Adhar no</th>
+        <th>District</th>
+        <th>Panchayath</th>
+        <th>Ward</th>
+        <th>Contact</th>
+        <th>Email</th>
+        
+        </tr>
+</thead>
+<tbody>
+  {% for r in r %}
+<tr>
+
+<td>{{r.adsname}}</td>
+<td>{{r.adsgender}}</td>
+<td>{{r.adsadharno}}</td>
+<td>{{r.adsdistrict}}</td>
+<td>{{r.adspanchayath}}</td>
+<td>{{r.adsward}}</td>
+<td>{{r.adscontact}}</td>
+<td>{{r.adsemail}}</td>
+<td><a href="../assign12/{{r.id}}/{{mid}}" class="btn btn-success">ASSIGN</a></td>
+
+</tr>
+{% endfor %}
+      </table>
+      <center><a href="http://127.0.0.1:8000/workrequestregistered" class="btn btn-success">BACK</a></center>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      {% endblock content %}

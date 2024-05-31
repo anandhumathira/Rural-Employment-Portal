@@ -1,0 +1,80 @@
+
+
+{% extends 'registertemplate.html' %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                   <center> <h2 class="card-title">ADS REGISTRATION</h2></center>
+                </div>
+                <div class="card-body" style="padding: 50px;">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ a.as_p }}
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Register</button>
+                            <a href="http://127.0.0.1:8000/" class="btn btn-success">BACK</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // Function to update adspanchayath choices
+        function updateAdspanchayathChoices() {
+            var selectedDistrict = $("#id_adsdistrict").val();
+            var adspanchayathField = $("#id_adspanchayath");
+
+            // Clear existing options
+            adspanchayathField.empty();
+
+            if (selectedDistrict) {
+                // Use a dictionary or object to store district-to-adspanchayath mappings
+                var adspanchayaths = {
+    'Alappuzha': ['Ambalappuzha South', 'Chennithala', 'Edathua', 'Karthikappally', 'Kuttanadu', 'Mavelikkara', 'Muthukulam', 'Pulinkunnu', 'Thrikkunnapuzha', 'Veliyanad'],
+    'Ernakulam': ['Alangad', 'Chendamangalam', 'Cheranallur', 'Elanji', 'Kadamakkudy', 'Kadungalloor', 'Kanayannur', 'Koothattukulam', 'Mulanthuruthy', 'Palluruthy'],
+    'Idukki': ['Adimaly', 'Devikulam', 'Elappara', 'Kattappana', 'Nedumkandam', 'Peerumedu', 'Thodupuzha', 'Udumbanchola', 'Idukki', 'Vandiperiyar'],
+    'Kannur': ['Alakode', 'Cherukunnu', 'Eramam', 'Irikkur', 'Kadirur', 'Kanhirode', 'Kannur', 'Kuthuparamba', 'Mattool', 'Pappinisseri'],
+    'Kasaragod': ['Chandera', 'Kumbala', 'Nileshwar', 'Uduma', 'Hosdurg', 'Manjeshwaram', 'Vellarikundu', 'Badiyadka', 'Kanhangad', 'Periya'],
+    'Kollam': ['Anchal', 'Chadayamangalam', 'Chathannoor', 'Karunagappally', 'Kottarakkara', 'Kulakkada', 'Pathanapuram', 'Punalur', 'Sasthamcotta', 'Vettikkavala'],
+    'Kottayam': ['Changanassery', 'Ettumanoor', 'Kanjirappally', 'Kottayam', 'Meenachil', 'Pala', 'Vaikom', 'Vazhoor', 'Vazhappally', 'Veliyannoor'],
+    'Kozhikode': ['Chathamangalam', 'Koduvally', 'Koyilandy', 'Kunnamangalam', 'Kuruvattoor', 'Madavoor', 'Mavoor', 'Perumanna', 'Thikkodi', 'Thuneri'],
+    'Malappuram': ['Angadippuram', 'Edavanna', 'Kalikavu', 'Kondotty', 'Malappuram', 'Mankada', 'Nilambur', 'Perinthalmanna', 'Tirur', 'Tirurangadi'],
+    'Palakkad': ['Alathur', 'Chittur', 'Kollengode', 'Mannarkkad', 'Nemmara', 'Ottappalam', 'Pattambi', 'Shoranur', 'Thrithala', 'Palakkad'],
+    'Pathanamthitta': ['Adoor', 'Kozhencherry', 'Ranni', 'Konni', 'Mallappally', 'Thiruvalla', 'Aranmula', 'Pandalam', 'Pathanamthitta', 'Vadasserikkara'],
+    'Thiruvananthapuram': ['Aryanad', 'Nedumangad', 'Varkala', 'Neyyattinkara', 'Perumkadavila', 'Vamanapuram', 'Kattakada', 'Vilappil', 'Chirayinkeezhu', 'Poovar'],
+    'Thrissur': ['Chavakkad', 'Kunnamkulam', 'Wadakkanchery', 'Irinjalakuda', 'Mukundapuram', 'Chalakudy', 'Kodungallur', 'Guruvayur', 'Manalur', 'Mala'],
+    'Wayanad': ['Ambalavayal', 'Bathery', 'Kaniyambatta', 'Kottathara', 'Mananthavady', 'Meppadi', 'Mullankolli', 'Nenmeni', 'Padinjarathara', 'Pulpally'],
+};
+
+                // Add options for selected district
+                var adspanchayathOptions = adspanchayaths[selectedDistrict];
+                if (adspanchayathOptions) {
+                    $.each(adspanchayathOptions, function(index, adspanchayath) {
+                        adspanchayathField.append('<option value="' + adspanchayath + '">' + adspanchayath + '</option>');
+                    });
+                }
+            }
+
+            // Add a default "Select Panchayath" option
+            adspanchayathField.prepend('<option value="" selected>Select Panchayath</option>');
+        }
+
+        // Initial update based on form's initial value
+        updateAdspanchayathChoices();
+
+        // Update adspanchayath choices whenever adsdistrict changes
+        $("#id_adsdistrict").change(function() {
+            updateAdspanchayathChoices();
+        });
+    });
+</script>
+
+
+{% endblock content %}

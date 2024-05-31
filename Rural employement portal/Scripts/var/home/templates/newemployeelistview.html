@@ -1,0 +1,32 @@
+{% extends 'panchayathtem.html' %}
+            {% block content %}
+
+        
+            <table class="table table-hover table table-basic">
+                <tr>
+                    <th>FULL NAME</th>
+                    <th>AGE</th>
+                    <th>GENDER</th>
+                    <th>ADHAR NO</th>
+                    <th>District</th>
+                    <th>Panchayath</th>
+                    <th>CONTACT NO</th>
+                    
+            </tr>
+            {% for r in r %}
+            <tr>
+                <td>{{r.fullname}}</td>
+                <td>{{r.age}}</td>
+                <td>{{r.gender}}</td>
+                <td>{{r.adharno}}</td>
+                <td>{{r.district}}</td>
+                <td>{{r.panchayath}}</td>
+                <td>{{r.contactno}}</td>
+                
+              </tr>
+              {% endfor %} 
+            </table> 
+        
+            
+            {% endblock content %}
+      

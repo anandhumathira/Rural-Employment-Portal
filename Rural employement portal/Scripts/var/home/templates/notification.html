@@ -1,0 +1,23 @@
+{% extends 'panchayathtem.html' %}
+{% block content %}
+        
+        
+        <center><h4>NOTIFICATION</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{jw.as_p}}
+                <input type="submit" class="btn btn-success" value="SUBMIT">
+                <a href="notificationview" class="btn btn-warning">VIEW</a>
+            </form></center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% endblock content %}
+
+    

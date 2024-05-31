@@ -1,0 +1,43 @@
+
+{% extends 'registertemplate.html' %}
+            {% block content %}
+            <br>
+            <br>
+<table class="table table-striped table-bordered zero-configuration">
+    <thead>
+      <tr>
+        <th>WORK ENTRY ID</th>
+        <th>COMPLETED WORK DETAILS</th>
+        <th>CURRENT DETAILS</th>
+        <th>DATE OF COMPLETE</th>
+        
+
+</tr>
+</thead>
+<tbody>
+    {% for fm in fm %}
+    <tr>
+              
+        <td>{{fm.workentryid}}</td>
+        <td>{{fm.completeworkdetails}}</td>
+        <td>{{fm.currentdetails}}</td>
+        <td>{{fm.todate}}</td>
+        <td><a href="workcompleteedit/{{fm.id}}" class="btn btn-success">EDIT</a></td>
+        <!-- <td><a href="workcompletedelete/{{fm.workentryid}}" class="btn btn-warning">DELETE</a></td> -->
+    
+    </tr>
+  {% endfor %}
+      </table>
+     <center> <a href="http://127.0.0.1:8000/workentryview2" class="btn btn-success">BACK</a></center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+      {% endblock content %}

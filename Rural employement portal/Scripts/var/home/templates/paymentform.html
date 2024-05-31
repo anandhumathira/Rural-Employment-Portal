@@ -1,0 +1,15 @@
+<!-- {% extends 'registertemplate.html' %} -->
+{% block content %}
+        <h2 class="text-center alert alert-danger">PAYMENT REGISTRATION</h2>
+        
+        <center>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{rp.as_p}}
+                <input type="submit" class="btn btn-success" value="Register">
+                <a href="http://127.0.0.1:8000/" class="btn btn-success">BACK</a>
+            </form></center>
+            
+ {% endblock %}
+
+    

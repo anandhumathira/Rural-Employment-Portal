@@ -1,0 +1,25 @@
+{% extends 'registertemplate.html' %}
+{% block content %}
+<br>
+<br>
+        
+        
+        <center><h4>NOTIFICATION</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{fm.as_p}}
+                <input type="submit" class="btn btn-success" value="SUBMIT">
+                <a href="http://127.0.0.1:8000/notificationview" class="btn btn-success">BACK</a>
+            </form></center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% endblock content %}
+
+    

@@ -1,0 +1,32 @@
+{% extends 'adshometem.html' %}
+            {% block content %}
+            
+                
+            
+        
+            <table class="table table-hover table table-basic">
+                <tr>
+                    <th>NOTIFICATION</th>
+                    <th>DATE</th>
+                    
+            </tr>
+            {% for fm in fm %}
+            <tr>
+                <td>{{fm.notification}}</td>
+                <td>{{fm.date}}</td>
+              </tr>
+              {% endfor %} 
+            </table> 
+        
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% endblock content %}
+      

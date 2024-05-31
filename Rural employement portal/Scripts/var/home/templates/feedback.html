@@ -1,0 +1,21 @@
+{% extends 'employeetemp.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center bg-danger text-white">
+            <h4>ADD FEEDBACK</h4>
+        </div>
+        <div class="card-body" style="padding: 50px;">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ rp.as_p }}
+                
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success btn-block">SUBMIT</button>
+                    <a href="feedbackview" class="btn btn-warning">VIEW</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

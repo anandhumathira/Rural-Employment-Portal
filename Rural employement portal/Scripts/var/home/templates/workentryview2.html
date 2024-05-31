@@ -1,0 +1,32 @@
+{% extends 'adshometem.html' %}
+            {% block content %}
+<table class="table table-striped table-bordered zero-configuration">
+
+      <tr><th>WORK DETAILS</th>
+        <th>STARTING DATE</th>
+         <th>NO OF DAYS</th>
+         <th>PANCHAYATH ID</th>
+</tr>
+{% for fm in fm %}
+<tr>
+    <td>{{fm.workdetails}}</td>
+    <td>{{fm.startingdate}}</td>
+    <td>{{fm.no_of_days}}</td>
+    <td>{{fm.panchayathid}}</td>
+    <td><a href="workcomplete/{{fm.id}}" class="btn btn-success">WORK COMPLETE</a></td>
+    <td><a href="workcompleteview2/{{fm.id}}" class="btn btn-success">VIEW</a></td>
+     </tr>
+{% endfor %}
+</table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock content %}

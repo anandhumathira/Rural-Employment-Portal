@@ -1,0 +1,25 @@
+{% extends 'registertemplate.html' %}
+            {% block content %}
+            
+                
+          
+        
+            <table class="table table-hover table table-basic">
+                <tr>
+                    <th>EMPLOYEE ID</th>
+                    <th>ATTENDENCE</th>
+                    <th>CURRENT DATE</th>
+                    
+            </tr>
+            {% for cp in cp %}
+            <tr>
+                <td>{{cp.employeeid}}</td>
+                <td>{{cp.attendence}}</td>
+                <td>{{cp.current_date}}</td>
+              </tr>
+              {% endfor %} 
+            </table> 
+        
+            
+            {% endblock content %}
+      

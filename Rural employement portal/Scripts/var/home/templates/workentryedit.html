@@ -1,0 +1,15 @@
+{% extends 'registertemplate.html' %}
+{% block content %}
+        <h2 class="text-center alert alert-danger">WORK ENTRY</h2>
+        
+        <center><h4>WORK ENTRY</h4>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{fm.as_p}}
+                <input type="submit" class="btn btn-success" value="Register">
+                <a href="http://127.0.0.1:8000/panchayathview" class="btn btn-success">Back</a>
+            </form></center>
+            <br>
+            <br>
+            
+            {% endblock content %}

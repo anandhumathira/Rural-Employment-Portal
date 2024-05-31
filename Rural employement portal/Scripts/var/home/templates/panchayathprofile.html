@@ -1,0 +1,42 @@
+{% extends 'panchayathtem.html' %}
+            {% block content %}
+
+
+            <div class="container">
+              <table class="table table-striped">
+                <tr>
+                    <th>District</th>
+                    <td>{{ ph.panchayath_district }}</td>
+                </tr>
+                  <tr>
+                      <th>Name of Panchayath</th>
+                      <td>{{ ph.panchayath_name }}</td>
+                  </tr>
+                  <tr>
+                      <th>Address</th>
+                      <td>{{ ph.panchayath_address }}</td>
+                  </tr>
+                  
+                  <tr>
+                      <th>City</th>
+                      <td>{{ ph.panchayath_city }}</td>
+                  </tr>
+                  <tr>
+                      <th>Pincode</th>
+                      <td>{{ ph.panchayath_pincode }}</td>
+                  </tr>
+                  <tr>
+                      <th>Contact</th>
+                      <td>{{ ph.panchayath_contact }}</td>
+                  </tr>
+              </table>
+             
+                 
+          </div>
+          
+      <center>
+        <a href="panchaedit" class="btn btn-success">EDIT</a>
+              
+      <a href="http://127.0.0.1:8000/panchayathhome" class="btn btn-success">BACK</a>
+    </center>
+      {% endblock content %}

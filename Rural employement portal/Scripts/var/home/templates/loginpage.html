@@ -1,0 +1,15 @@
+{% extends 'login.html' %}
+{% block content %}
+    <center>
+        <h2 class="text-center alert alert-danger">LOGIN PAGE</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login">
+    </form>
+    {% if form.errors %}
+    <p style="color: red;">{{ form.errors }}</p>
+    {% endif %}
+</div>
+    </center>
+    {% endblock content %}

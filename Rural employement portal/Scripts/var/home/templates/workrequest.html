@@ -1,0 +1,72 @@
+{% extends 'publichometem.html' %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header text-center bg-danger text-white">
+      <h2>WORK REQUEST</h2>
+    </div>
+    <div class="card-body" style="padding: 50px;">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ p.as_p }}
+        <div class="text-center mt-3">
+          <button type="submit" class="btn btn-success">Register</button>
+          <a href="http://127.0.0.1:8000/publichome" class="btn btn-success">BACK</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+      // Function to update panchayath_name choices
+      function updatePanchayathNameChoices() {
+          var selectedDistrict = $("#id_district").val();
+          var panchayathNameField = $("#id_panchayath");
+
+          // Clear existing options
+          panchayathNameField.empty();
+
+          if (selectedDistrict) {
+              // Use a dictionary or object to store district-to-panchayath mappings
+              var panchayaths = {
+    'Alappuzha': ['Ambalappuzha South', 'Chennithala', 'Edathua', 'Karthikappally', 'Kuttanadu', 'Mavelikkara', 'Muthukulam', 'Pulinkunnu', 'Thrikkunnapuzha', 'Veliyanad'],
+    'Ernakulam': ['Alangad', 'Chendamangalam', 'Cheranallur', 'Elanji', 'Kadamakkudy', 'Kadungalloor', 'Kanayannur', 'Koothattukulam', 'Mulanthuruthy', 'Palluruthy'],
+    'Idukki': ['Adimaly', 'Devikulam', 'Elappara', 'Kattappana', 'Nedumkandam', 'Peerumedu', 'Thodupuzha', 'Udumbanchola', 'Idukki', 'Vandiperiyar'],
+    'Kannur': ['Alakode', 'Cherukunnu', 'Eramam', 'Irikkur', 'Kadirur', 'Kanhirode', 'Kannur', 'Kuthuparamba', 'Mattool', 'Pappinisseri'],
+    'Kasaragod': ['Chandera', 'Kumbala', 'Nileshwar', 'Uduma', 'Hosdurg', 'Manjeshwaram', 'Vellarikundu', 'Badiyadka', 'Kanhangad', 'Periya'],
+    'Kollam': ['Anchal', 'Chadayamangalam', 'Chathannoor', 'Karunagappally', 'Kottarakkara', 'Kulakkada', 'Pathanapuram', 'Punalur', 'Sasthamcotta', 'Vettikkavala'],
+    'Kottayam': ['Changanassery', 'Ettumanoor', 'Kanjirappally', 'Kottayam', 'Meenachil', 'Pala', 'Vaikom', 'Vazhoor', 'Vazhappally', 'Veliyannoor'],
+    'Kozhikode': ['Chathamangalam', 'Koduvally', 'Koyilandy', 'Kunnamangalam', 'Kuruvattoor', 'Madavoor', 'Mavoor', 'Perumanna', 'Thikkodi', 'Thuneri'],
+    'Malappuram': ['Angadippuram', 'Edavanna', 'Kalikavu', 'Kondotty', 'Malappuram', 'Mankada', 'Nilambur', 'Perinthalmanna', 'Tirur', 'Tirurangadi'],
+    'Palakkad': ['Alathur', 'Chittur', 'Kollengode', 'Mannarkkad', 'Nemmara', 'Ottappalam', 'Pattambi', 'Shoranur', 'Thrithala', 'Palakkad'],
+    'Pathanamthitta': ['Adoor', 'Kozhencherry', 'Ranni', 'Konni', 'Mallappally', 'Thiruvalla', 'Aranmula', 'Pandalam', 'Pathanamthitta', 'Vadasserikkara'],
+    'Thiruvananthapuram': ['Aryanad', 'Nedumangad', 'Varkala', 'Neyyattinkara', 'Perumkadavila', 'Vamanapuram', 'Kattakada', 'Vilappil', 'Chirayinkeezhu', 'Poovar'],
+    'Thrissur': ['Chavakkad', 'Kunnamkulam', 'Wadakkanchery', 'Irinjalakuda', 'Mukundapuram', 'Chalakudy', 'Kodungallur', 'Guruvayur', 'Manalur', 'Mala'],
+    'Wayanad': ['Ambalavayal', 'Bathery', 'Kaniyambatta', 'Kottathara', 'Mananthavady', 'Meppadi', 'Mullankolli', 'Nenmeni', 'Padinjarathara', 'Pulpally'],
+};
+
+              // Add options for selected district
+              var panchayathOptions = panchayaths[selectedDistrict];
+              if (panchayathOptions) {
+                  $.each(panchayathOptions, function(index, panchayath) {
+                      panchayathNameField.append('<option value="' + panchayath + '">' + panchayath + '</option>');
+                  });
+              }
+          }
+
+          // Add a default "Select Panchayath" option
+          panchayathNameField.prepend('<option value="" selected>Select Panchayath</option>');
+      }
+
+      // Initial update based on form's initial value
+      updatePanchayathNameChoices();
+
+      // Update panchayath choices whenever district changes
+      $("#id_district").change(function() {
+          updatePanchayathNameChoices();
+      });
+  });
+</script>
+{% endblock content %}
